@@ -16,8 +16,12 @@ class Controller
 		$this->viewInstance = new View();
 	}
 
-	protected function render(string $view)
+	protected function render(string $view, $data = null)
 	{
+		if ($data != null) {
+			$this->viewInstance->setPageData($data);
+		}
+
 		$this->viewInstance->renderPage($view);
 	}
 }

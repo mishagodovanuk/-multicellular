@@ -7,13 +7,12 @@ class Main extends Controller
 {
 	public function actionIndex()
 	{
-		$this->render('body');
-		echo "Main index controller action";
-		die();
+		$this->render('index', 'say hello');
 	}
 
 	public function actionSay()
 	{
+		$this->render('asd');
 		echo "Hello world";
 		die();
 	}
