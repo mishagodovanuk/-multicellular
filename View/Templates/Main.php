@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Maxim - Modern One Page Bootstrap Template</title>
+	<title><?php echo $this->getTitle(); ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
@@ -11,12 +11,6 @@
 	<link href="/web/Main/css/style.css" rel="stylesheet">
 	<link href="/web/Main/color/default.css" rel="stylesheet">
 	<link rel="shortcut icon" href="/web/Main/img/favicon.ico">
-	<!-- =======================================================
-    Theme Name: Maxim
-    Theme URL: https://bootstrapmade.com/maxim-free-onepage-bootstrap-theme/
-    Author: BootstrapMade.com
-    Author URL: https://bootstrapmade.com
-	======================================================= -->
 </head>
 
 <body>
@@ -28,7 +22,7 @@
 					<!-- Responsive navbar -->
 					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
 				</a>
-					<h1 class="brand"><a href="index.html">Maxim</a></h1>
+					<h1 class="brand"><a href="index.html">Multicellular</a></h1>
 					<!-- navigation -->
 					<nav class="pull-right nav-collapse collapse">
 						<ul id="menu-main" class="nav">
@@ -45,6 +39,7 @@
 		</div>
 	</div>
 	<!-- Header area -->
+    <!-- Body area -->
 	<?php $this->getBody(); ?>
 	<footer>
 		<div class="container">
@@ -57,15 +52,9 @@
 						<li><a href="#"><i class="icon-circled icon-bgdark icon-pinterest icon-2x"></i></a></li>
 					</ul>
 					<p class="copyright">
-						&copy; Maxim Theme. All rights reserved.
+						&copy; Multicellular. All rights reserved.
 						<div class="credits">
-							<!--
-                All the links in the footer should remain intact.
-                You can delete the links only if you purchased the pro version.
-                Licensing information: https://bootstrapmade.com/license/
-                Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Maxim
-              -->
-							Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+							Designed by <a href="https://bootstrapmade.com/">Misha Hodovanuk</a>
 						</div>
 					</p>
 				</div>
