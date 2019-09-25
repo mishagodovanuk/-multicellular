@@ -22,7 +22,7 @@ abstract class Autoload
      */
     protected function loadControllers()
 	{
-		$controllers = glob($_SERVER['DOCUMENT_ROOT'] . '/Controller/' . '*.php');
+		$controllers = glob(SITE_ROOT . '/Controller/' . '*.php');
 		foreach ($controllers as $controller) {
 			include_once $controller;
 		}
@@ -33,7 +33,7 @@ abstract class Autoload
      */
     protected function loadCoreClasses()
 	{
-		foreach (glob($_SERVER['DOCUMENT_ROOT'] . '/core/app/*', GLOB_ONLYDIR) as $dir) {
+		foreach (glob(CORE_ROOT . '/app/*', GLOB_ONLYDIR) as $dir) {
 
 			foreach (glob($dir . '/*.php') as $d) {
 				include_once $d;

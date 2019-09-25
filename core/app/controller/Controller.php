@@ -16,6 +16,9 @@ class Controller
      */
     private $viewInstance;
 
+    /**
+     * @var \App\Controller\Request
+     */
     private $requestInstance;
 
     /**
@@ -35,6 +38,9 @@ class Controller
         return $this->viewInstance;
     }
 
+    /**
+     * @return \App\Controller\Request
+     */
     protected function getRequest()
     {
         return $this->requestInstance;
