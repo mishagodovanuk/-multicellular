@@ -36,8 +36,8 @@ class Router
      */
     protected function getAction()
 	{
-		if (class_exists('\Controller\\' . ucfirst($this->_explodedUrl['controller']))) {
-			$className = '\Controller\\' . ucfirst($this->_explodedUrl['controller']);
+		if (class_exists('\User\Controller\\' . ucfirst($this->_explodedUrl['controller']))) {
+			$className = '\User\Controller\\' . ucfirst($this->_explodedUrl['controller']);
 			$_action = new $className;
 			if (method_exists($_action, 'action' . ucfirst($this->_explodedUrl['action']))) {
 				$_controllerAction = 'action' . ucfirst($this->_explodedUrl['action']); 

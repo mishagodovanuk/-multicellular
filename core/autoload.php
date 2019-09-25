@@ -14,8 +14,17 @@ abstract class Autoload
     public function load()
 	{
 		self::loadCoreClasses();
+		self::loadModels();
 		self::loadControllers();
 	}
+
+	protected function loadModels()
+    {
+        $models = glob(SITE_ROOT . '/Model/' . '*.php');
+        foreach ($models as $model) {
+            include_once $model;
+        }
+    }
 
     /**
      *
