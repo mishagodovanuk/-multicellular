@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\View\View;
 use App\Controller\Request;
+use App\Controller\Session;
 
 /**
  * Class Controller
@@ -21,6 +22,8 @@ class Controller
      */
     private $requestInstance;
 
+    private $sessionInstance;
+
     /**
      * Controller constructor.
      */
@@ -28,6 +31,7 @@ class Controller
 	{
 		$this->viewInstance = new View();
 		$this->requestInstance = new Request();
+		$this->sessionInstance = new Session();
 	}
 
     /**
@@ -44,6 +48,11 @@ class Controller
     protected function getRequest()
     {
         return $this->requestInstance;
+    }
+
+    protected function getSession()
+    {
+        return $this->sessionInstance;
     }
 
     /**
