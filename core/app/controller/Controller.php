@@ -2,21 +2,49 @@
 namespace App\Controller;
 
 use App\View\View;
+use App\Controller\Request;
 
-/*
-* Class Controller
-*/
+/**
+ * Class Controller
+ *
+ * @package App\Controller
+ */
 class Controller
 {
-	// @var 
-	private $viewInstance;
+    /**
+     * @var \App\View\View
+     */
+    private $viewInstance;
 
-	function __construct()
+    private $requestInstance;
+
+    /**
+     * Controller constructor.
+     */
+    function __construct()
 	{
 		$this->viewInstance = new View();
+		$this->requestInstance = new Request();
 	}
 
-	protected function render(string $view, $data = null)
+    /**
+     * @return \App\View\View
+     */
+    protected function getView()
+    {
+        return $this->viewInstance;
+    }
+
+    protected function getRequest()
+    {
+        return $this->requestInstance;
+    }
+
+    /**
+     * @param \App\Controller\string $view
+     * @param null                   $data
+     */
+    protected function render(string $view, $data = null)
 	{
 		if ($data != null) {
 			$this->viewInstance->setPageData($data);

@@ -1,36 +1,40 @@
 <?php
 namespace Core;
 
-/*
-* Class Router
-*/
-class Router 
+/**
+ * Class Router
+ *
+ * @package Core
+ */
+class Router
 {
-	//@var array $_explodedUrl
-	protected $_explodedUrl;
+    /**
+     * @var
+     */
+    protected $_explodedUrl;
 
-	/*
-	* Function routerStart
-	*/
-	public  function routeStart()
+    /**
+     *
+     */
+    public  function routeStart()
 	{
 		$this->router();
 	}
 
-	/*
-	* Function router
-	*/
-	protected function router()
+    /**
+     *
+     */
+    protected function router()
 	{
 		$this->urlExplode();
 		$this->setGlobals();
 		$this->getAction();
 	}
 
-	/*
-	* Function getAction
-	*/
-	protected function getAction()
+    /**
+     *
+     */
+    protected function getAction()
 	{
 		if (class_exists('\Controller\\' . ucfirst($this->_explodedUrl['controller']))) {
 			$className = '\Controller\\' . ucfirst($this->_explodedUrl['controller']);
@@ -44,10 +48,10 @@ class Router
 		} else die('Class doesnt exist');
 	}
 
-	/*
-	* Function urlExplode
-	*/
-	protected function urlExplode()
+    /**
+     *
+     */
+    protected function urlExplode()
 	{
 		if ($this->_explodedUrl === null) {
 			$explodedArray = explode('/', $_SERVER['REQUEST_URI']);
@@ -68,16 +72,15 @@ class Router
 				$explodedArray['action'] = 'index';
 				unset($explodedArray[2]);
 			}
-	
 		}
 
 		$this->_explodedUrl = $explodedArray;
 	}
 
-	/*
-	* Function setGlobals
-	*/
-	protected function setGlobals()
+    /**
+     *
+     */
+    protected function setGlobals()
 	{
 		$GLOBALS['controller'] = ucfirst($this->_explodedUrl['controller']);
 		$GLOBALS['action'] = ucfirst($this->_explodedUrl['action']);
