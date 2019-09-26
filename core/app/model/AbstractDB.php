@@ -2,8 +2,9 @@
 namespace App\Model;
 
 use PDO;
+use PDOException;
 
-class Model
+class AbstractDB
 {
     private $_db_host;
     private $_db_name;
@@ -11,7 +12,7 @@ class Model
     private $_db_user;
     private $_db_pass;
 
-    protected $entity;
+    private $_pdo_entity;
 
     private function getDbConfig()
     {
@@ -27,25 +28,25 @@ class Model
     private function connect()
     {
         $dsn = "mysql:host=$this->_db_host;dbname=$this->_db_name;charset=$this->_db_charset";
-        $opt = [
-            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-            PDO::ATTR_EMULATE_PREPARES   => false,
-        ];
-        $pdo = new PDO($dsn, $this->_db_user, $this->_db_pass, $opt);
-        $this->entity = $pdo;
+        try {
+            $opt = [
+                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                PDO::ATTR_EMULATE_PREPARES   => false,
+            ];
+            $pdo = new PDO($dsn, $this->_db_user, $this->_db_pass, $opt);
+        } catch (PDOException $e) {
+            echo 'Connection failed: ' . $e->getMessage();
+            die();
+        }
+        $this->_pdo_entity = $pdo;
     }
 
-    public function create()
+    public function runDatabase()
     {
         $this->getDbConfig();
         $this->connect();
-        return $this;
-    }
 
-    public function gedTableData()
-    {
-        $data = $this->entity->query("SELECT * FROM test");
-        return $data->fetchAll();
+        return $this->_pdo_entity;
     }
 }

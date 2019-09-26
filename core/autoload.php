@@ -11,14 +11,14 @@ abstract class Autoload
     /**
      *
      */
-    public function load()
+    public static function load()
 	{
 		self::loadCoreClasses();
 		self::loadModels();
 		self::loadControllers();
 	}
 
-	protected function loadModels()
+	protected static function loadModels()
     {
         $models = glob(SITE_ROOT . '/Model/' . '*.php');
         foreach ($models as $model) {
@@ -29,7 +29,7 @@ abstract class Autoload
     /**
      *
      */
-    protected function loadControllers()
+    protected static function loadControllers()
 	{
 		$controllers = glob(SITE_ROOT . '/Controller/' . '*.php');
 		foreach ($controllers as $controller) {
@@ -40,7 +40,7 @@ abstract class Autoload
     /**
      *
      */
-    protected function loadCoreClasses()
+    protected static function loadCoreClasses()
 	{
 		foreach (glob(CORE_ROOT . '/app/*', GLOB_ONLYDIR) as $dir) {
 

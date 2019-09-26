@@ -12,16 +12,15 @@ use User\Model\Data;
 class Main extends Controller
 {
     /**
-     *
+     *  Action index.
      */
     public function actionIndex()
 	{
 	    $data = new Data();
-	    $data->create();
-	    var_dump($data->gedTableData());die();
+	    $data = $data->getUserData()->fetchAll();
 
 	    $this->getView()->setTitle('Home page title');
-		$this->render('index', 'say hello');
+		$this->render('index', $data);
 	}
 
     /**

@@ -1,3 +1,6 @@
+<?php
+$data = $this->getPageData();
+?>
 <div id="header-wrapper" class="header-slider">
 		<header class="clearfix">
 			<div class="logo">
@@ -50,7 +53,7 @@
 	<!-- section: team -->
 	<section id="about" class="section">
 		<div class="container">
-			<h4>Who We Are</h4>
+			<h4><?php var_dump($data);?></h4>
 			<div class="row">
 				<div class="span4 offset1">
 					<div>
