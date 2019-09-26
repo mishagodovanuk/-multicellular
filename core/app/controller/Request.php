@@ -9,6 +9,8 @@ namespace App\Controller;
 class Request
 {
     /**
+     * Get Request POST.
+     *
      * @param mixed ...$args
      *
      * @return array|bool
@@ -29,6 +31,8 @@ class Request
     }
 
     /**
+     * public Get Post.
+     *
      * @param mixed ...$args
      *
      * @return array|bool
@@ -39,6 +43,8 @@ class Request
     }
 
     /**
+     * Get Request GET.
+     *
      * @param mixed ...$args
      *
      * @return array|bool
@@ -59,6 +65,8 @@ class Request
     }
 
     /**
+     * public Get GET request.
+     *
      * @param mixed ...$args
      *
      * @return array|bool
@@ -69,6 +77,8 @@ class Request
     }
 
     /**
+     * Get all requests.
+     *
      * @return mixed
      */
     public function getAll()
@@ -77,6 +87,8 @@ class Request
     }
 
     /**
+     * If request is Post.
+     *
      * @return bool
      */
     public function requestIsPost()
@@ -89,6 +101,8 @@ class Request
     }
 
     /**
+     * Is request is GET.
+     *
      * @return bool
      */
     public function requestIsGet()

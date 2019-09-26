@@ -13,15 +13,24 @@ use App\Controller\Session;
 class Controller
 {
     /**
+     * View.
+     *
      * @var \App\View\View
      */
     private $viewInstance;
 
     /**
+     * Request.
+     *
      * @var \App\Controller\Request
      */
     private $requestInstance;
 
+    /**
+     * Session.
+     *
+     * @var \App\Controller\Session
+     */
     private $sessionInstance;
 
     /**
@@ -35,6 +44,8 @@ class Controller
 	}
 
     /**
+     * Get view.
+     *
      * @return \App\View\View
      */
     protected function getView()
@@ -43,6 +54,8 @@ class Controller
     }
 
     /**
+     * Get request.
+     *
      * @return \App\Controller\Request
      */
     protected function getRequest()
@@ -50,22 +63,27 @@ class Controller
         return $this->requestInstance;
     }
 
+    /**
+     * Get session.
+     *
+     * @return \App\Controller\Session
+     */
     protected function getSession()
     {
         return $this->sessionInstance;
     }
 
     /**
-     * @param \App\Controller\string $view
-     * @param null                   $data
+     * Render.
+     *
+     * @param string $view
+     * @param $data = null
      */
     protected function render(string $view, $data = null)
 	{
 		if ($data != null) {
 			$this->viewInstance->setPageData($data);
 		}
-
 		$this->viewInstance->renderPage($view);
 	}
 }
-
