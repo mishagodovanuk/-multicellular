@@ -16,4 +16,11 @@ abstract class Logger
         //chmod(SITE_ROOT . '/var/log/error.log', 0755);
         exec('sudo chmod -R 777 ' . SITE_ROOT . '/var/log/error.log');
     }
+
+    protected static function createErrorLogFile()
+    {
+        if (!file_exists(SITE_ROOT. '/var/log/error.log')) {
+
+        }
+    }
 }
