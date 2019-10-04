@@ -2,19 +2,21 @@
 namespace Core;
 
 /**
- * Class Router
+ * Class Router.
  *
  * @package Core
  */
 class Router
 {
     /**
-     * @var
+     * Exploded url.
+     *
+     * @var array
      */
     protected $_explodedUrl;
 
     /**
-     *
+     * Run routing.
      */
     public  function routeStart()
 	{
@@ -22,7 +24,7 @@ class Router
 	}
 
     /**
-     *
+     * Router.
      */
     protected function router()
 	{
@@ -32,7 +34,7 @@ class Router
 	}
 
     /**
-     *
+     * Run action.
      */
     protected function getAction()
 	{
@@ -49,14 +51,14 @@ class Router
 	}
 
     /**
-     *
+     * Url Exploder.
      */
     protected function urlExplode()
 	{
 		if ($this->_explodedUrl === null) {
 			$explodedArray = explode('/', $_SERVER['REQUEST_URI']);
 			unset($explodedArray[0]);
-			
+
 			if (array_key_exists(1, $explodedArray) && !empty($explodedArray[1]) && !strstr($explodedArray[1], '?')) {
 				$explodedArray['controller'] = $explodedArray[1];
 				unset($explodedArray[1]);
@@ -68,7 +70,10 @@ class Router
 			if (array_key_exists(2, $explodedArray) && !empty($explodedArray[2]) && !strstr($explodedArray[2], '?')) {
 				$explodedArray['action'] = $explodedArray[2];
 				unset($explodedArray[2]);
-			} else {
+			} else if (strstr($explodedArray[2], '?')) {
+                $action = explode('?', $explodedArray[2]);
+			    $explodedArray['action'] = $action[0];
+            } else {
 				$explodedArray['action'] = 'index';
 				unset($explodedArray[2]);
 			}
@@ -78,7 +83,7 @@ class Router
 	}
 
     /**
-     *
+     *Set global variables.
      */
     protected function setGlobals()
 	{

@@ -4,6 +4,8 @@ namespace App\Controller;
 use App\View\View;
 use App\Controller\Request;
 use App\Controller\Session;
+use App\Controller\Redirect;
+use App\Controller\Url;
 
 /**
  * Class Controller
@@ -33,6 +35,10 @@ class Controller
      */
     private $sessionInstance;
 
+    private $urlInstance;
+
+    private $redirectInstance;
+
     /**
      * Controller constructor.
      */
@@ -41,6 +47,8 @@ class Controller
 		$this->viewInstance = new View();
 		$this->requestInstance = new Request();
 		$this->sessionInstance = new Session();
+		$this->urlInstance = new Url();
+		$this->redirectInstance = new Redirect();
 	}
 
     /**
@@ -71,6 +79,16 @@ class Controller
     protected function getSession()
     {
         return $this->sessionInstance;
+    }
+
+    protected function getUrl()
+    {
+        return $this->urlInstance;
+    }
+
+    protected function getRedirect()
+    {
+        return $this->redirectInstance;
     }
 
     /**
