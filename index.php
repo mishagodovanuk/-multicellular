@@ -1,6 +1,6 @@
 <?php
 ini_set('display_errors',1);
-error_reporting(E_ALL);
+//error_reporting(E_ALL);
 
 define('SITE_ROOT', $_SERVER['DOCUMENT_ROOT']);
 define('CORE_ROOT', SITE_ROOT . '/core/');
@@ -16,4 +16,4 @@ Autoload::load();
 $_router = new Router;
 $_router->routeStart();
 
-Logger::log('mydata');
+//Logger::log('mydata');

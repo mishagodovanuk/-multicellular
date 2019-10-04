@@ -515,4 +515,3 @@ $data = $this->getPageData();
 			</div>
 		</div>
 	</section>
-/web/Main/
