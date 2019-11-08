@@ -16,7 +16,6 @@ class Main extends Controller
      */
     public function actionIndex()
 	{
-	    $this->getRedirect()->redirect('main/say', ['key' => 'value', 'key1' => 'value1']);
 	    $data = new Data();
 	    $data = $data->getData()->fetchAll();
 

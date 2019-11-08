@@ -11,21 +11,21 @@ $data = $this->getPageData();
 					<div class="span12">
 						<div id="main-flexslider" class="flexslider">
 							<ul class="slides">
-								<li>
+                                <li>
 									<p class="home-slide-content">
-										<strong>creative</strong> and passion
+										Simple <strong>structure</strong>
 									</p>
 								</li>
 								<li>
 									<p class="home-slide-content">
-										Eat and drink <strong>design</strong>
+										Bootstrap <strong>FrontEnd</strong>
 									</p>
 								</li>
-								<li>
-									<p class="home-slide-content">
-										We loves <strong>simplicity</strong>
-									</p>
-								</li>
+                                <li>
+                                    <p class="home-slide-content">
+                                        Easy <strong>Start</strong>
+                                    </p>
+                                </li>
 							</ul>
 						</div>
 						<!-- end slider -->
@@ -40,7 +40,8 @@ $data = $this->getPageData();
 			<div class="row">
 				<div class="span6 alignright flyLeft">
 					<blockquote class="large">
-						There's huge space beetween creativity and imagination <cite>Mark Simmons, Nett Media</cite>
+                        Given the current deplorable state of our programs, we can say that programming is definitely still black magic, and so far, we cannot call it a technical discipline.
+                        <cite>Bill Clinton</cite>
 					</blockquote>
 				</div>
 				<div class="span6 aligncenter flyRight">
@@ -53,7 +54,7 @@ $data = $this->getPageData();
 	<!-- section: team -->
 	<section id="about" class="section">
 		<div class="container">
-			<h4><?php var_dump($data);?></h4>
+<!--			<h4>--><?php //var_dump($data);?><!--</h4>-->
 			<div class="row">
 				<div class="span4 offset1">
 					<div>
